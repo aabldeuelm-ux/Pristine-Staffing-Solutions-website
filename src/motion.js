@@ -241,6 +241,49 @@ function initHeaderTransform() {
   };
 }
 
+function initMobileMenu() {
+  const header = document.querySelector('.header');
+  const nav = document.querySelector('.header__nav');
+  const toggle = document.querySelector('[data-nav-toggle]');
+  if (!header || !nav || !toggle) return;
+
+  const setOpen = (open) => {
+    nav.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setOpen(!nav.classList.contains('is-open'));
+  });
+
+  // Close when a nav link is tapped.
+  nav.addEventListener('click', (e) => {
+    if (e.target.closest('a')) setOpen(false);
+  });
+
+  // Close when tapping outside the nav or the toggle.
+  document.addEventListener('click', (e) => {
+    if (nav.classList.contains('is-open') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+      setOpen(false);
+    }
+  });
+
+  // Close on Escape.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+
+  // Close the menu on resize up to desktop (nav is inline there).
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) setOpen(false);
+  });
+}
+
 function initScrollIndicator() {
   const indicator = document.querySelector('.hero__scroll[data-scroll-indicator]');
   const hero = document.getElementById('home');
@@ -306,4 +349,5 @@ export function initMotion() {
   const headerApi = initHeaderTransform();
   initContactVisibility(headerApi);
   initScrollIndicator();
+  initMobileMenu();
 }

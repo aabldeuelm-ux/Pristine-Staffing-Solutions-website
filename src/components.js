@@ -28,7 +28,7 @@ function renderHeader() {
           <img class="header__logo-mark" src="/pristine-logo.svg" alt="Pristine Staffing Solutions logo" />
           <span class="header__logo">Pristine <span>Staffing Solutions</span></span>
         </a>
-        <nav class="header__nav">
+        <nav class="header__nav" id="site-nav" aria-label="Primary">
           <img
             class="header__nav-mark"
             src="/pristine-logo.svg"
@@ -55,6 +55,16 @@ function renderHeader() {
             </span>
           </button>
         </nav>
+        <button
+          type="button"
+          class="header__toggle"
+          data-nav-toggle
+          aria-label="Open menu"
+          aria-controls="site-nav"
+          aria-expanded="false"
+        >
+          <span class="header__toggle-bar" aria-hidden="true"></span>
+        </button>
       </div>
     </header>
   `;
