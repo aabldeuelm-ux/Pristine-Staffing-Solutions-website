@@ -241,6 +241,24 @@ function initHeaderTransform() {
   };
 }
 
+function initScrollIndicator() {
+  const indicator = document.querySelector('.hero__scroll[data-scroll-indicator]');
+  const hero = document.getElementById('home');
+  if (!indicator || !hero) return;
+
+  const onScroll = () => {
+    const heroRect = hero.getBoundingClientRect();
+    // Show the indicator while the hero section is on screen; hide it once the
+    // hero has fully scrolled up past the top of the viewport.
+    const hide = heroRect.bottom <= 0;
+    indicator.classList.toggle('is-hidden', hide);
+  };
+
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+}
+
 function initContactVisibility(headerApi) {
   const condLink = document.querySelector('.header__link--conditional');
   if (!condLink) return;
@@ -287,4 +305,5 @@ export function initMotion() {
   initScrollSpy();
   const headerApi = initHeaderTransform();
   initContactVisibility(headerApi);
+  initScrollIndicator();
 }

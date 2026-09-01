@@ -583,6 +583,7 @@ p {
    ======================================== */
 
 .hero {
+  position: relative;
   background: var(--grad-navy-teal);
   color: rgba(255, 255, 255, 0.85);
   overflow: hidden;
@@ -636,6 +637,75 @@ p {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease-site), transform 0.35s var(--ease-site);
+}
+
+.hero__scroll.is-hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(8px);
+}
+
+.hero__scroll-icon {
+  position: relative;
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 14px;
+}
+
+.hero__scroll-icon::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  margin-left: -2px;
+  border-radius: 2px;
+  background: var(--color-brass);
+  animation: hero-scroll-peck 1.8s var(--ease-site) infinite;
+}
+
+.hero__scroll-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@keyframes hero-scroll-peck {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero__scroll {
+    display: none;
+  }
 }
 
 /* ========================================
