@@ -1,0 +1,16 @@
+{
+  "name": "pristiness",
+  "version": "1.0.0",
+  "description": "Pristine Staffing Solutions – HR consulting & facility management",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "three": "^0.177.0",
+    "vite": "^6.3.5"
+  }
+}

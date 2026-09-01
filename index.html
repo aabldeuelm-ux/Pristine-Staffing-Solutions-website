@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pristine Staffing Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Piazzolla:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pristine-theme');
+        var dark =
+          saved === 'dark'
+            ? true
+            : saved === 'light'
+            ? false
+            : window.matchMedia &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div id="header-root"></div>
+
+  <main id="page-content">
+    <section class="hero section" id="home">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="hero__eyebrow" data-reveal>HR Consulting · Staffing · Facility Management</p>
+          <h1 class="hero__title" data-reveal>Pristine Staffing Solutions</h1>
+          <p class="hero__lede" data-reveal>
+            HR consulting and facility management for businesses that expect
+            precision, reliability, and a professional people-first approach.
+          </p>
+          <div class="hero__actions" data-reveal>
+            <a href="/careers.html" class="btn btn--primary">Work with us</a>
+            <a href="/careers.html#contact" class="btn btn--outline">Contact us</a>
+          </div>
+        </div>
+        <div id="hero-three" class="hero__visual" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="container">
+        <h2 class="about__title" data-reveal>Pristine</h2>
+        <p class="about__lede" data-reveal>
+          Pristine Staffing Solutions is a group of HR professionals with core
+          principles and values. Established in 2019 in Bengaluru, we are
+          passionate about people and the role they play in any company’s
+          success. We believe our clients deserve more than a cookie-cutter
+          approach, hence we play the role of a Business Partner shadowing the
+          Client in all dimensions of Human Resource in an integrated manner —
+          in areas like HR Consultancy, HR Operations, Recruitment, Temporary
+          & Permanent Staffing, and Training & Development.
+        </p>
+        <p class="about__mission" data-reveal>
+          We cater manpower to IT and Non-IT industries on Off-Roll and On-Roll
+          platforms, from entry to senior level positions across all segments.
+          We also source manpower under skilled, semi-skilled, and unskilled
+          categories under the Karnataka MW Act. We extend our services in
+          Facility Management as well.
+        </p>
+        <div class="about__stats">
+          <div class="about__stat" data-reveal>
+            <span class="about__stat-value" data-count="250" data-suffix="+">250+</span>
+            <span class="about__stat-label">People placed</span>
+          </div>
+          <div class="about__stat" data-reveal>
+            <span class="about__stat-value" data-count="40" data-suffix="+">40+</span>
+            <span class="about__stat-label">Client worksites</span>
+          </div>
+          <div class="about__stat" data-reveal>
+            <span class="about__stat-value" data-count="12">12</span>
+            <span class="about__stat-label">Years in Bengaluru</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services section section--alt" id="services">
+      <div class="container">
+        <h2 class="services__title" data-reveal>Our Services</h2>
+        <div class="services__grid">
+          <article class="panel services__tile" data-reveal>
+            <span class="services__tile-num" aria-hidden="true">01</span>
+            <h3>Staffing & Recruitment</h3>
+            <p class="services__tile-teaser">End-to-end hiring for permanent and contractual roles.</p>
+            <div class="services__tile-desc" hidden>
+              <p>
+                Sourcing, screening, and onboarding for permanent and contractual
+                roles across IT and non-IT companies, from entry-level to senior
+                leadership.
+              </p>
+            </div>
+          </article>
+          <article class="panel services__tile" data-reveal>
+            <span class="services__tile-num" aria-hidden="true">02</span>
+            <h3>HR Outsourcing</h3>
+            <p class="services__tile-teaser">Payroll, compliance, and employee lifecycle management.</p>
+            <div class="services__tile-desc" hidden>
+              <p>
+                A dedicated HR partner handling payroll, compliance, attendance,
+                and employee lifecycle management so your team stays focused on
+                the business.
+              </p>
+            </div>
+          </article>
+          <article class="panel services__tile" data-reveal>
+            <span class="services__tile-num" aria-hidden="true">03</span>
+            <h3>Facility Management</h3>
+            <p class="services__tile-teaser">Housekeeping, security, maintenance, and administration.</p>
+            <div class="services__tile-desc" hidden>
+              <p>
+                Integrated facility operations for corporate offices and
+                campuses — housekeeping, security, maintenance, and front-office
+                administration under one accountable partner.
+              </p>
+            </div>
+          </article>
+          <article class="panel services__tile" data-reveal>
+            <span class="services__tile-num" aria-hidden="true">04</span>
+            <h3>Housekeeping Services</h3>
+            <p class="services__tile-teaser">Trained, background-checked cleaning staff with quality audits.</p>
+            <div class="services__tile-desc" hidden>
+              <p>
+                Reliable cleaning teams with scheduled quality audits and
+                consistent staffing so your workplace stays clean, safe, and
+                presentable.
+              </p>
+            </div>
+          </article>
+          <article class="panel services__tile" data-reveal>
+            <span class="services__tile-num" aria-hidden="true">05</span>
+            <h3>Security Services</h3>
+            <p class="services__tile-teaser">Licensed guards, access control, and incident response.</p>
+            <div class="services__tile-desc" hidden>
+              <p>
+                Licensed guards, access control, and incident response keep your
+                premises safe around the clock, backed by trained supervision.
+              </p>
+            </div>
+          </article>
+          <article class="panel services__tile" data-reveal>
+            <span class="services__tile-num" aria-hidden="true">06</span>
+            <h3>Compliance & Audits</h3>
+            <p class="services__tile-teaser">Statutory compliance, labour law, and facility audits.</p>
+            <div class="services__tile-desc" hidden>
+              <p>
+                Statutory compliance, labour-law adherence, and facility audits
+                that keep operations above board and reduce risk.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="how section">
+      <div class="container">
+        <h2 class="how__title" data-reveal>How We Work</h2>
+        <div class="how__steps">
+          <div class="how__step" data-reveal>
+            <span class="how__step-index">01</span>
+            <h3>Assess your needs</h3>
+            <p>
+              We start with your goals, headcount, and site requirements to
+              define exactly what support looks like.
+            </p>
+          </div>
+          <div class="how__step" data-reveal>
+            <span class="how__step-index">02</span>
+            <h3>Source and vet</h3>
+            <p>
+              We recruit, screen, and verify candidates or service staff suited
+              to your workplace and culture.
+            </p>
+          </div>
+          <div class="how__step" data-reveal>
+            <span class="how__step-index">03</span>
+            <h3>Onboard and deploy</h3>
+            <p>
+              Teams are trained, documented, and deployed with clear handoffs
+              and a single point of contact.
+            </p>
+          </div>
+          <div class="how__step" data-reveal>
+            <span class="how__step-index">04</span>
+            <h3>Review and improve</h3>
+            <p>
+              Regular performance reviews and audits keep service consistent
+              and improving over time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trusted section section--alt">
+      <div class="container">
+        <h2 class="trusted__title" data-reveal>Trusted by teams across Bengaluru</h2>
+        <div class="trusted__marquee" data-reveal>
+          <div class="trusted__track">
+            <div class="trusted__group">
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/brea.jpeg" alt="Brea" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/swiggy.png" alt="Swiggy" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/dolci-cafe.jpeg" alt="Dolci Cafe" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/namdharis.png" alt="Namdharis" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/abspl.jpeg" alt="ABSPL" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/wyn-brands.png" alt="WYN Brands" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/zepto.png" alt="Zepto" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/markazul-maarif.png" alt="Markazul Maarif" loading="lazy" /></div>
+            </div>
+            <div class="trusted__group" aria-hidden="true">
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/brea.jpeg" alt="" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/swiggy.png" alt="" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/dolci-cafe.jpeg" alt="" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/namdharis.png" alt="" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/abspl.jpeg" alt="" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/wyn-brands.png" alt="" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/zepto.png" alt="" loading="lazy" /></div>
+              <div class="trusted__tile"><img class="trusted__logo" src="/assets/clients/markazul-maarif.png" alt="" loading="lazy" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta section">
+      <div class="container cta__inner">
+        <h2 class="cta__title" data-reveal>Ready to build the team your business deserves?</h2>
+        <p class="cta__text" data-reveal>
+          Let’s talk about your staffing and facility needs. Our team in
+          Bengaluru is ready to help.
+        </p>
+        <div data-reveal>
+          <a href="/careers.html" class="btn btn--primary">Get in touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

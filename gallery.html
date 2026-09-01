@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery – Pristine Staffing Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Piazzolla:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pristine-theme');
+        var dark =
+          saved === 'dark'
+            ? true
+            : saved === 'light'
+            ? false
+            : window.matchMedia &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div id="header-root"></div>
+
+  <main id="page-content">
+    <header class="subpage-header section">
+      <div class="container">
+        <h1 class="subpage-header__title" data-reveal>Gallery</h1>
+        <p class="subpage-header__lede" data-reveal>
+          A look at the teams, sites, and work we manage for our clients across
+          Bengaluru.
+        </p>
+      </div>
+    </header>
+
+    <section class="gallery section">
+      <div class="container">
+        <div class="gallery__grid">
+          <figure class="gallery__item" data-reveal>
+            <img class="gallery__img" src="/assets/gallery/bref.webp" alt="Facility team in action" loading="lazy" />
+          </figure>
+          <figure class="gallery__item" data-reveal>
+            <img class="gallery__img" src="/assets/gallery/bref2.webp" alt="Facility management at work" loading="lazy" />
+          </figure>
+          <figure class="gallery__item" data-reveal>
+            <img class="gallery__img" src="/assets/gallery/bref3.webp" alt="Corporate housekeeping team" loading="lazy" />
+          </figure>
+          <figure class="gallery__item" data-reveal>
+            <img class="gallery__img" src="/assets/gallery/bref4.webp" alt="Workplace upkeep in progress" loading="lazy" />
+          </figure>
+          <figure class="gallery__item" data-reveal>
+            <img class="gallery__img" src="/assets/gallery/med02.webp" alt="Healthcare facility staffing" loading="lazy" />
+          </figure>
+          <figure class="gallery__item" data-reveal>
+            <img class="gallery__img" src="/assets/gallery/med1.webp" alt="Facility staff on location" loading="lazy" />
+          </figure>
+          <figure class="gallery__item" data-reveal>
+            <img class="gallery__img" src="/assets/gallery/med3.webp" alt="Healthcare support team" loading="lazy" />
+          </figure>
+          <figure class="gallery__item" data-reveal>
+            <img class="gallery__img" src="/assets/gallery/med4.webp" alt="Healthcare facility operations" loading="lazy" />
+          </figure>
+          <figure class="gallery__item" data-reveal>
+            <img class="gallery__img" src="/assets/gallery/med5.webp" alt="Healthcare staffing on-site" loading="lazy" />
+          </figure>
+          <figure class="gallery__item" data-reveal>
+            <img class="gallery__img" src="/assets/gallery/team.webp" alt="Pristine team" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta section">
+      <div class="container cta__inner">
+        <h2 class="cta__title" data-reveal>Want to see what we can do for you?</h2>
+        <p class="cta__text" data-reveal>
+          Let’s talk about your staffing and facility needs in Bengaluru.
+        </p>
+        <div data-reveal>
+          <a href="/careers.html" class="btn btn--primary">Get in touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

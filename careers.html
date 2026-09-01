@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers – Pristine Staffing Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Piazzolla:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('pristine-theme');
+        var dark =
+          saved === 'dark'
+            ? true
+            : saved === 'light'
+            ? false
+            : window.matchMedia &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div id="header-root"></div>
+
+  <main id="page-content">
+    <header class="subpage-header section">
+      <div class="container">
+        <h1 class="subpage-header__title" data-reveal>Careers</h1>
+        <p class="subpage-header__lede" data-reveal>
+          Join our team and help businesses run better — or reach out to work
+          with us on your staffing and facility needs in Bengaluru.
+        </p>
+      </div>
+    </header>
+
+    <section class="careers section section--alt" id="careers">
+      <div class="container">
+        <h2 class="careers__title" data-reveal>Open Roles</h2>
+        <ul class="careers__list">
+          <li class="careers__role" data-reveal>
+            <div class="careers__role-head">
+              <div class="careers__role-info">
+                <h3>Facility Executive</h3>
+                <p>Bengaluru · Full-time</p>
+              </div>
+            </div>
+            <p class="careers__role-desc" hidden>
+              Oversee day-to-day facility operations, coordinate housekeeping and
+              security teams, and act as the single point of contact for a smooth,
+              well-run workplace.
+            </p>
+          </li>
+          <li class="careers__role" data-reveal>
+            <div class="careers__role-head">
+              <div class="careers__role-info">
+                <h3>HR Recruitment Associate</h3>
+                <p>Bengaluru · Full-time</p>
+              </div>
+            </div>
+            <p class="careers__role-desc" hidden>
+              Source, screen, and shortlist candidates for staffing roles across
+              IT and non-IT clients, manage the hiring pipeline, and support
+              end-to-end onboarding.
+            </p>
+          </li>
+          <li class="careers__role" data-reveal>
+            <div class="careers__role-head">
+              <div class="careers__role-info">
+                <h3>Housekeeping Supervisor</h3>
+                <p>Bengaluru · Full-time</p>
+              </div>
+            </div>
+            <p class="careers__role-desc" hidden>
+              Lead and schedule cleaning teams, conduct quality audits, manage
+              supplies, and keep sites clean, safe, and presentable.
+            </p>
+          </li>
+          <li class="careers__role" data-reveal>
+            <div class="careers__role-head">
+              <div class="careers__role-info">
+                <h3>Payroll & Compliance Executive</h3>
+                <p>Bengaluru · Full-time</p>
+              </div>
+            </div>
+            <p class="careers__role-desc" hidden>
+              Manage payroll processing, statutory deductions, and labour-law
+              compliance including the Karnataka MW Act, keeping records accurate
+              and audits clean.
+            </p>
+          </li>
+          <li class="careers__role" data-reveal>
+            <div class="careers__role-head">
+              <div class="careers__role-info">
+                <h3>Security Officer</h3>
+                <p>Bengaluru · Full-time</p>
+              </div>
+            </div>
+            <p class="careers__role-desc" hidden>
+              Manage licensed guarding staff, access control, and incident
+              response to keep premises safe and secure around the clock.
+            </p>
+          </li>
+          <li class="careers__role" data-reveal>
+            <div class="careers__role-head">
+              <div class="careers__role-info">
+                <h3>Front Office Administrator</h3>
+                <p>Bengaluru · Full-time</p>
+              </div>
+            </div>
+            <p class="careers__role-desc" hidden>
+              Be the face of the workplace — greet visitors, manage calls and
+              reception operations, and support front-office administration
+              smoothly.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="container contact__inner">
+        <div class="contact__info" data-reveal>
+          <h2 class="contact__title">Get in touch</h2>
+          <p class="contact__lede">
+            For staffing, facility management, or careers, we’d love to hear
+            from you. Reach us directly or send a message through the form.
+          </p>
+          <ul class="contact__details">
+            <li>
+              <span class="contact__label">Address</span>
+              <span class="contact__value">No 59/1 #A-310, 3rd Floor, GVR Plaza,<br />3rd Main Road, Srinivasa Layout,<br />Raghavendra Temple Road, Kavalbyrasandra,<br />RT Nagar Post, Bengaluru - 560032,<br />Karnataka, India</span>
+            </li>
+            <li>
+              <span class="contact__label">Phone</span>
+              <a class="contact__value" href="tel:08041327770">080 4132 7770</a>
+            </li>
+            <li>
+              <span class="contact__label">WhatsApp</span>
+              <a class="contact__value" href="https://wa.me/919845615587" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            </li>
+            <li>
+              <span class="contact__label">Email</span>
+              <a class="contact__value" href="mailto:hr@pristiness.in">hr@pristiness.in</a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact__form" id="contact-form" action="#" method="post" data-reveal>
+          <div class="contact__field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div class="contact__field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="contact__field">
+            <label for="phone">Phone / WhatsApp</label>
+            <input id="phone" name="phone" type="tel" required />
+          </div>
+          <div class="contact__field">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="staffing">Staffing & recruitment</option>
+              <option value="facility">Facility management</option>
+              <option value="careers">Careers</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="contact__field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary contact__submit">
+            <span class="btn__label">Send message</span>
+            <span class="btn__spinner" aria-hidden="true" hidden></span>
+          </button>
+          <p id="contact-error" class="contact__error" hidden>
+            Something went wrong sending this. Please call us at 080 4132 7770
+            or email hr@pristiness.in directly.
+          </p>
+        </form>
+        <p id="contact-success" class="contact__success" hidden>
+          Thanks — we've received your message and will get back to you shortly.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
