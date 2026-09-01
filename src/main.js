@@ -4,6 +4,7 @@ import { initHero3D } from './hero3d.js';
 import { initMotion } from './motion.js';
 import { initContactForm } from './contact.js';
 import { initTheme } from './theme.js';
+import { initGalleryLightbox } from './gallery.js';
 
 inject();
 
@@ -18,3 +19,4 @@ if (heroContainer) {
 initTheme();
 initMotion();
 initContactForm();
+initGalleryLightbox();
