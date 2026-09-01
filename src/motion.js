@@ -113,8 +113,6 @@ function initCareerRoles() {
       role.classList.toggle('is-open', open);
     };
 
-    role.addEventListener('mouseenter', () => toggle(true));
-    role.addEventListener('mouseleave', () => toggle(false));
     role.addEventListener('click', () => toggle(desc.hidden));
   });
 }
