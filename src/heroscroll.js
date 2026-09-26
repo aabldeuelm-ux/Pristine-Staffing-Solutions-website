@@ -354,8 +354,18 @@ export function initHeroScroll(visual, hero3d) {
     hero.classList.toggle('is-scrolling', p > 0.02);
   }
 
+  // Progress is measured from the point where the hero reaches the top of the
+  // viewport, not from a page scroll of zero. The body is padded down by the
+  // fixed header, and that padding is rewritten from the header's own height
+  // as the header compacts, so the hero's offset into the page moves while the
+  // sequence runs. Reading it live keeps the intro state pinned to the start of
+  // the hero and holds the whole sequence inside the hero's own travel, instead
+  // of running ahead of the pin and settling before the hero is released.
   function readProgress() {
-    return clamp01(window.scrollY / sequenceDistance);
+    const offset = stage
+      ? Math.round(stage.getBoundingClientRect().top + window.scrollY)
+      : 0;
+    return clamp01((window.scrollY - offset) / sequenceDistance);
   }
 
   function render() {
