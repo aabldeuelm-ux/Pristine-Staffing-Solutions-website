@@ -1795,40 +1795,4 @@ body.lightbox--open {
     opacity: 1 !important;
     transform: none !important;
   }
-
-  /* ---------------------------------------------------------------------
-     Hero: no pinned scroll sequence. The hero is not sticky, adds no
-     scroll distance, and every part of it is legible from the first
-     paint, so the finished layout is what the visitor sees and can use.
-     --------------------------------------------------------------------- */
-  .hero-stage {
-    height: auto !important;
-  }
-
-  .hero-stage > .hero {
-    position: static;
-  }
-
-  .js-hero .hero__title {
-    opacity: 1;
-  }
-
-  .js-hero .hero__visual {
-    visibility: visible;
-  }
-
-  .js-hero .hero__eyebrow,
-  .js-hero .hero__lede,
-  .js-hero .hero__actions {
-    opacity: 1;
-    transform: none;
-  }
-
-  .hero:not(.is-settled) .hero__text {
-    pointer-events: auto;
-  }
-
-  .hero__scroll {
-    display: none;
-  }
 }

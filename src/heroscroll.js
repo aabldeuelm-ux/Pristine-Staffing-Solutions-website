@@ -39,13 +39,6 @@ function span(value, range) {
   return clamp01((value - range[0]) / (range[1] - range[0]));
 }
 
-function prefersReducedMotion() {
-  return (
-    window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  );
-}
-
 function untransformedRect(el) {
   const previous = el.style.transform;
   el.style.transform = 'none';
@@ -96,17 +89,7 @@ export function initHeroScroll(visual, hero3d) {
 
   const getLogoFrame = (hero3d && hero3d.getLogoFrame) || null;
   const setOversample = (hero3d && hero3d.setOversample) || null;
-  const reduced = prefersReducedMotion();
   const stage = hero.closest('.hero-stage');
-
-  // With reduced motion there is no sequence to run: the hero is not pinned,
-  // no scroll distance is added, and the stylesheet already shows the finished
-  // layout. The headline is left as plain text and nothing is measured, split
-  // or listened for, so the hero is complete and usable from the first paint.
-  if (reduced) {
-    hero.classList.add('is-settled');
-    return;
-  }
 
   const letters = splitHeadline(title);
   const pieces = [
@@ -182,7 +165,7 @@ export function initHeroScroll(visual, hero3d) {
       ),
     };
 
-    if (stage && !reduced) {
+    if (stage) {
       sequenceDistance = Math.max(
         SEQUENCE_MIN,
         Math.min(

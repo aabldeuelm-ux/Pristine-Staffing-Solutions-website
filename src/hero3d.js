@@ -332,6 +332,9 @@ export function initHero3D(container) {
     oversample = next;
     renderer.setPixelRatio(Math.min((window.devicePixelRatio || 1) * next, 3));
     renderer.setSize(container.clientWidth, container.clientHeight, false);
+    // the hero scroll sequence drives this while the logo scales up, and with
+    // reduced motion there is no render loop to pick the new resolution up
+    if (reduced) renderStill();
   };
 
   const renderStill = () => {
