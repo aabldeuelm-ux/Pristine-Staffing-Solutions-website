@@ -98,7 +98,7 @@ function renderFooter() {
               <li><a href="tel:08041327770">080 4132 7770</a></li>
               <li><a href="tel:+919845615587">+91 98456 15587</a></li>
               <li><a href="mailto:hr@pristiness.in">hr@pristiness.in</a></li>
-              <li class="footer__address">No 59/1 #A-310, 3rd Floor, GVR Plaza, 3rd Main Road, Srinivasa Layout, Raghavendra Temple Road, Kavalbyrasandra, RT Nagar Post, Bengaluru - 560032, Karnataka, India</li>
+              <li class="footer__address">No 59/1 #A-310, 3rd Floor, GVR Plaza, 3rd Main Road, Srinivasa Layout, Kavalbyrasandra, RT Nagar Post, Bengaluru - 560032, Karnataka, India</li>
             </ul>
           </div>
         </div>
