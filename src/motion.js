@@ -84,20 +84,40 @@ function initServiceTiles() {
     const desc = tile.querySelector('.services__tile-desc');
     if (!desc) return;
 
+    const interactive = !tile.classList.contains('services__tile--future');
+    if (interactive) {
+      tile.tabIndex = 0;
+      tile.setAttribute('role', 'button');
+      tile.setAttribute('aria-expanded', 'false');
+    }
+
+    const setOpen = (open) => {
+      desc.hidden = !open;
+      tile.classList.toggle('is-open', open);
+      if (interactive) tile.setAttribute('aria-expanded', String(open));
+    };
+
     tile.addEventListener('click', () => {
       const isOpen = desc.hidden === false;
 
       tiles.forEach((other) => {
+        if (other === tile) return;
         const d = other.querySelector('.services__tile-desc');
-        if (!d) return;
-        if (other !== tile) {
-          d.hidden = true;
-          other.classList.remove('is-open');
-        }
+        if (!d || d.hidden) return;
+        d.hidden = true;
+        other.classList.remove('is-open');
+        other.setAttribute('aria-expanded', 'false');
       });
 
-      desc.hidden = isOpen;
-      tile.classList.toggle('is-open', !isOpen);
+      setOpen(!isOpen);
+    });
+
+    if (!interactive) return;
+
+    tile.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+      e.preventDefault();
+      tile.click();
     });
   });
 }

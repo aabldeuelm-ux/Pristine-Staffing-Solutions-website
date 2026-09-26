@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Piazzolla:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles.css" />
   <script>
+    document.documentElement.classList.add('js-hero');
     (function () {
       try {
         var saved = localStorage.getItem('pristine-theme');
@@ -32,27 +33,29 @@
   <div id="header-root"></div>
 
   <main id="page-content">
-    <section class="hero section" id="home">
-      <div class="container hero__inner">
-        <div class="hero__text">
-          <p class="hero__eyebrow" data-reveal>HR Consulting · Staffing · Facility Management</p>
-          <h1 class="hero__title" data-reveal>Pristine Staffing Solutions</h1>
-          <p class="hero__lede" data-reveal>
-            HR consulting and facility management for businesses that expect
-            precision, reliability, and a professional people-first approach.
-          </p>
-          <div class="hero__actions" data-reveal>
-            <a href="/careers.html" class="btn btn--primary">Work with us</a>
-            <a href="/careers.html#contact" class="btn btn--outline">Contact us</a>
+    <div class="hero-stage">
+      <section class="hero section" id="home">
+        <div class="container hero__inner">
+          <div class="hero__text">
+            <p class="hero__eyebrow">HR Consulting · Staffing · Facility Management</p>
+            <h1 class="hero__title">Pristine Staffing Solutions</h1>
+            <p class="hero__lede">
+              HR consulting and facility management for businesses that expect
+              precision, reliability, and a professional people-first approach.
+            </p>
+            <div class="hero__actions">
+              <a href="/careers.html" class="btn btn--primary">Work with us</a>
+              <a href="/careers.html#contact" class="btn btn--outline">Contact us</a>
+            </div>
           </div>
+          <div id="hero-three" class="hero__visual" aria-hidden="true"></div>
         </div>
-        <div id="hero-three" class="hero__visual" aria-hidden="true"></div>
-      </div>
-      <div class="hero__scroll" data-scroll-indicator>
-        <span class="hero__scroll-icon" aria-hidden="true"></span>
-        <span class="hero__scroll-label">Scroll to explore</span>
-      </div>
-    </section>
+        <div class="hero__scroll" data-scroll-indicator>
+          <span class="hero__scroll-icon" aria-hidden="true"></span>
+          <span class="hero__scroll-label">Scroll to explore</span>
+        </div>
+      </section>
+    </div>
 
     <section class="about section" id="about">
       <div class="container">
@@ -130,6 +133,96 @@
                 quality audits, along with front-office administration and
                 facility maintenance, all under one accountable partner.
               </p>
+            </div>
+          </article>
+          <article class="panel services__tile services__tile--wide" data-reveal>
+            <div class="services__tile-head">
+              <span class="services__tile-num" aria-hidden="true">04</span>
+              <h3>Resource Process Outsource (RPO)</h3>
+              <p class="services__tile-teaser">
+                Scalable, tech-enabled recruitment infrastructure for high-volume
+                hiring.
+              </p>
+            </div>
+            <div class="services__tile-desc" hidden>
+              <p>
+                Pristine Staffing Solutions provides a highly scalable,
+                tech-enabled Recruitment Process Outsourcing (RPO) infrastructure
+                built to handle the intense, high-velocity hiring demands of the
+                Indian market. We deploy an all-inclusive, predictable cost model
+                specifically engineered to manage high-volume recruitment spikes
+                across your IT, Healthcare, Hospital, Banking, and Customer Support
+                sectors.
+              </p>
+              <p>
+                By centralizing your talent acquisition operations into a flat-rate
+                monthly model, we eliminate volatile third-party consultancy costs
+                and absorb the logistical burden of high-volume candidate
+                screening, scheduling, and onboarding.
+              </p>
+            </div>
+          </article>
+          <article class="panel services__tile services__tile--wide" data-reveal>
+            <div class="services__tile-head">
+              <span class="services__tile-num" aria-hidden="true">05</span>
+              <h3>US IT Staffing</h3>
+              <p class="services__tile-teaser">
+                Elite technical talent for US enterprises, Fortune 500 partners, and
+                prime vendors.
+              </p>
+            </div>
+            <div class="services__tile-desc" hidden>
+              <p>
+                Pristine Staffing Solutions is a dedicated workforce partner
+                specializing in US IT Staffing services. The company delivers elite
+                technical talent to US mid-market enterprises, Fortune 500 partners,
+                and prime vendors through versatile engagement models including
+                Contract, Contract-to-Hire (C2H), and Permanent Placement (W2, 1099,
+                and C2C). Backed by a ready infrastructure and dedicated onboarding
+                teams, the company ensures complete resource deployment, hardware
+                provisioning, and compliance screening within 48 to 72 hours.
+              </p>
+            </div>
+          </article>
+          <article class="panel services__tile services__tile--wide" data-reveal>
+            <div class="services__tile-head">
+              <span class="services__tile-num" aria-hidden="true">06</span>
+              <h3>BPO &amp; Customer Experience (CX) Hiring Services</h3>
+              <p class="services__tile-teaser">
+                End-to-end recruitment for high-volume, omni-channel BPO and CX
+                operations.
+              </p>
+            </div>
+            <div class="services__tile-desc" hidden>
+              <p>
+                Pristine Staffing Solutions provides end-to-end recruitment for
+                high-volume, omni-channel Business Process Outsourcing (BPO) and
+                customer experience operations. We source, vet, and deploy scalable
+                talent for front-office and back-office demands:
+              </p>
+              <ul>
+                <li>
+                  <strong>Customer Experience &amp; Support:</strong> Technical
+                  support tiers 1–3, omni-channel customer service representatives
+                  (voice, chat, email), and multilingual agents.
+                </li>
+                <li>
+                  <strong>Back-Office &amp; Shared Services:</strong> Data entry
+                  specialists, billing/invoice processors, HR shared services talent,
+                  and virtual assistants.
+                </li>
+                <li>
+                  <strong>Specialized BPO Verticals:</strong> Sourcing healthcare
+                  credentialing agents, medical billers, financial service reps,
+                  and collections specialists.
+                </li>
+                <li>
+                  <strong>High-Volume RPO (Recruitment Process Outsourcing):</strong>
+                  Dedicated recruiting engines capable of sourcing, interviewing, and
+                  onboarding large classes of agents simultaneously to meet seasonal
+                  spikes or rapid scale-ups.
+                </li>
+              </ul>
             </div>
           </article>
         </div>

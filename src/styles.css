@@ -664,7 +664,7 @@ p {
   margin-bottom: var(--space-sm);
 }
 
-.hero__title span {
+.hero__title > span:not(.hl-w) {
   color: var(--color-brass);
 }
 
@@ -760,6 +760,58 @@ p {
   .hero__scroll {
     display: none;
   }
+}
+
+/* ========================================
+   Hero scroll sequence
+   ======================================== */
+
+.hero-stage {
+  position: relative;
+}
+
+.hero-stage > .hero {
+  position: sticky;
+  top: 0;
+}
+
+.js-hero .hero__visual {
+  visibility: hidden;
+}
+
+.js-hero .hero__title {
+  opacity: 0;
+}
+
+.hero__title .hl-w {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hero__title .hl-c {
+  display: inline-block;
+  transform-origin: left top;
+  will-change: transform, opacity;
+}
+
+.hero.is-settled .hero__title .hl-c {
+  will-change: auto;
+}
+
+.js-hero .hero__eyebrow,
+.js-hero .hero__lede,
+.js-hero .hero__actions {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero:not(.is-settled) .hero__text {
+  pointer-events: none;
+}
+
+.hero.is-scrolling .hero__scroll {
+  opacity: 0;
+  transform: translateX(-50%) translateY(8px);
 }
 
 /* ========================================
@@ -946,6 +998,52 @@ p {
 .services__tile-desc p {
   color: var(--c-text);
   animation: tile-desc-in 0.3s var(--ease-site);
+}
+
+.services__tile-desc p + p {
+  margin-top: var(--space-xs);
+}
+
+.services__tile-desc ul {
+  margin: var(--space-xs) 0 0;
+  padding-left: 1.15rem;
+  list-style: disc;
+  animation: tile-desc-in 0.3s var(--ease-site);
+}
+
+.services__tile-desc li {
+  color: var(--c-text);
+}
+
+.services__tile-desc li + li {
+  margin-top: var(--space-xs);
+}
+
+.services__tile-desc strong {
+  color: var(--c-heading);
+  font-weight: 600;
+}
+
+.services__tile:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+.services__tile--wide {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 900px) {
+  .services__tile--wide.is-open {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    column-gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .services__tile--wide.is-open .services__tile-desc {
+    padding-top: 0;
+  }
 }
 
 @keyframes tile-desc-in {
@@ -1479,6 +1577,10 @@ a.contact__value {
 
 .careers__list [data-reveal]:nth-child(5) { transition-delay: 280ms; }
 
+.services__grid [data-reveal]:nth-child(5) { transition-delay: 280ms; }
+
+.services__grid [data-reveal]:nth-child(6) { transition-delay: 350ms; }
+
 .careers__list [data-reveal]:nth-child(6) { transition-delay: 350ms; }
 
 /* ========================================
@@ -1692,5 +1794,41 @@ body.lightbox--open {
   .reveal {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  /* ---------------------------------------------------------------------
+     Hero: no pinned scroll sequence. The hero is not sticky, adds no
+     scroll distance, and every part of it is legible from the first
+     paint, so the finished layout is what the visitor sees and can use.
+     --------------------------------------------------------------------- */
+  .hero-stage {
+    height: auto !important;
+  }
+
+  .hero-stage > .hero {
+    position: static;
+  }
+
+  .js-hero .hero__title {
+    opacity: 1;
+  }
+
+  .js-hero .hero__visual {
+    visibility: visible;
+  }
+
+  .js-hero .hero__eyebrow,
+  .js-hero .hero__lede,
+  .js-hero .hero__actions {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero:not(.is-settled) .hero__text {
+    pointer-events: auto;
+  }
+
+  .hero__scroll {
+    display: none;
   }
 }

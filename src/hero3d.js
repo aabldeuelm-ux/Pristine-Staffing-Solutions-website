@@ -8,7 +8,6 @@ const TEAL_RECESS_DEPTH = 0.75;
 const ROTATION_SPEED = 0.008;
 const FALLBACK_Y = -0.85;
 const FALLBACK_X = 0.35;
-const FRAME_PADDING = 0.66;
 const TILT_MAX = 0.28;
 const TILT_SMOOTHING = 0.035;
 
@@ -195,19 +194,16 @@ function buildLogo(logoGroup, envMap) {
           `[hero3d] logo centered at origin, size after scale — w: ${(size.x * LOGO_SCALE).toFixed(3)}, h: ${(size.y * LOGO_SCALE).toFixed(3)}, d: ${(size.z * LOGO_SCALE).toFixed(3)}, raw svg h: ${size.y.toFixed(2)}`
         );
 
-        resolve(size.x * LOGO_SCALE, size.y * LOGO_SCALE, size.z * LOGO_SCALE);
+        resolve({
+          x: size.x * LOGO_SCALE,
+          y: size.y * LOGO_SCALE,
+          z: size.z * LOGO_SCALE,
+        });
       },
       undefined,
       (err) => reject(err)
     );
   });
-}
-
-function fitDistance(size, aspect, fovDeg, padding) {
-  const vFov = (fovDeg * Math.PI) / 180;
-  // visible height needed must cover height AND width (given aspect)
-  const neededHeight = Math.max(size.y * padding, (size.x * padding) / aspect);
-  return neededHeight / (2 * Math.tan(vFov / 2));
 }
 
 function resizeRenderer(renderer, camera, container) {
@@ -221,6 +217,19 @@ function resizeRenderer(renderer, camera, container) {
   camera.updateProjectionMatrix();
 
   return aspect;
+}
+
+function logoFrameInPixels(size, camera, aspect, width, height) {
+  if (!size || width === 0 || height === 0) return null;
+
+  const vFov = (camera.fov * Math.PI) / 180;
+  const visibleHeight = 2 * camera.position.z * Math.tan(vFov / 2);
+  if (visibleHeight <= 0) return null;
+
+  return {
+    width: (size.x / (visibleHeight * aspect)) * width,
+    height: (size.y / visibleHeight) * height,
+  };
 }
 
 function disposeGroup(group) {
@@ -241,7 +250,8 @@ export function initHero3D(container) {
   const hasHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
   let pointerInside = false;
   let hostVisible = true;
-  let logoSize = null;
+  let logoWorldSize = null;
+  let oversample = 1;
   let targetTiltX = 0;
   let targetTiltY = 0;
 
@@ -265,12 +275,15 @@ export function initHero3D(container) {
     fillLight.intensity = dark ? 1.5 : 1.2;
     rimLight.intensity = dark ? 1.9 : 1.6;
     ambientLight.intensity = dark ? 0.55 : 0.4;
+    // with reduced motion there is no render loop to pick this up
+    if (reduced) renderStill();
   };
   window.addEventListener('theme:toggle', syncThemeLights);
 
   let animationId = null;
   let disposed = false;
   let logoReady = false;
+  let logoFrame = null;
   let observer = null;
   let ro = null;
 
@@ -298,32 +311,54 @@ export function initHero3D(container) {
   };
 
   const onResize = () => {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
     const aspect = resizeRenderer(renderer, camera, container);
-    if (aspect && logoSize) {
-      camera.position.z = fitDistance(
-        logoSize,
-        Math.max(aspect, 1e-4),
-        35,
-        FRAME_PADDING
+    if (aspect) {
+      logoFrame = logoFrameInPixels(
+        logoWorldSize,
+        camera,
+        aspect,
+        width,
+        height
       );
     }
+    if (reduced) renderStill();
+  };
+
+  const setOversample = (factor) => {
+    const next = Math.max(1, Math.min(Math.round((factor || 1) * 4) / 4, 3));
+    if (next === oversample) return;
+    oversample = next;
+    renderer.setPixelRatio(Math.min((window.devicePixelRatio || 1) * next, 3));
+    renderer.setSize(container.clientWidth, container.clientHeight, false);
+  };
+
+  const renderStill = () => {
+    spin.rotation.y = FALLBACK_Y;
+    spin.rotation.x = FALLBACK_X;
+    parallax.rotation.set(0, 0, 0);
+    renderer.render(scene, camera);
   };
 
   const animate = () => {
     if (disposed) return;
+    // With reduced motion the logo holds one fixed pose, so there is nothing
+    // to animate: draw it on demand (resize, theme, first frame) instead of
+    // keeping a render loop running for the life of the page.
+    if (reduced) {
+      renderStill();
+      return;
+    }
     animationId = requestAnimationFrame(animate);
 
-    if (logoReady && hostVisible && !reduced) {
+    if (logoReady && hostVisible) {
       if (!pointerInside) spin.rotation.y += ROTATION_SPEED;
       // smooth tilt toward cursor (parallax), independent of spin
       if (hasHover) {
         parallax.rotation.x += (targetTiltX - parallax.rotation.x) * TILT_SMOOTHING;
         parallax.rotation.y += (targetTiltY - parallax.rotation.y) * TILT_SMOOTHING;
       }
-    } else if (logoReady && reduced) {
-      spin.rotation.y = FALLBACK_Y;
-      spin.rotation.x = FALLBACK_X;
-      parallax.rotation.set(0, 0, 0);
     }
 
     renderer.render(scene, camera);
@@ -373,9 +408,9 @@ export function initHero3D(container) {
   animate();
 
   buildLogo(logo, envMap)
-    .then(([w, h, d]) => {
+    .then((size) => {
       if (disposed) return;
-      logoSize = { x: w, y: h, z: d };
+      logoWorldSize = size;
       logoReady = true;
       onResize();
     })
@@ -385,5 +420,5 @@ export function initHero3D(container) {
       onResize();
     });
 
-  return { dispose };
+  return { dispose, getLogoFrame: () => logoFrame, setOversample };
 }
